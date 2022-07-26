@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu Mystère</title>
+</head>
+    <link rel="stylesheet" href="Jeu mystère.css" />
+   <body>
+    <input placeholder="0" oninput="document.getElementById('rôti').innerHTML= ''" id="Barre_de_céréales" onkeydown = "if (event.keyCode == 13) document.getElementById('fleur').click()">
+    <button id="fleur"onclick="toto()">Tape m'en cinq!</button>
+    <span id="rôti"></span>
+<script>
+    const MAX_VALUE=1000;
+    let value=Math.floor(Math.random()*(MAX_VALUE+1));
+    console.log(value);
+    function toto() {
+        let chinois=document.getElementById("Barre_de_céréales").value;
+        if (chinois==value) {
+            document.getElementById("rôti").innerHTML= "<strong> Bravo, tu as atteint le rang Vin Diesel, félicitations! </strong>"
+            console.log("Victoire");
+        }
+        else if (chinois>1000 || chinois<0) {
+            document.getElementById("rôti").innerHTML= "<strong> Le nombre doit être compris entre ta moyenne en math et...pff laisse tomber... ABRUTI! </strong>"
+
+        }
+        else if (chinois<value) {
+            document.getElementById("rôti").innerHTML= "<strong> Aaaaargh! Beaucoup trop petit mon ami! </strong>"
+            console.log("Trop petit");
+        }
+        else {
+            document.getElementById("rôti").innerHTML= "<strong> Mouais, tu t'enflammes vachement quand même! </strong>"
+            console.log("Trop grand");
+        }   
+    } 
+</script>
+   </body>
